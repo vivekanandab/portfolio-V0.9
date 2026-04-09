@@ -13,7 +13,7 @@ const SECTOR_MAP = {
     'certifications': { x: -450, y: -150, color: '#00BFFF', icon: 'assets/icons/tech/json.png' }, 
     'extra': { x: 450, y: 0, color: '#FF69B4', icon: 'assets/icons/tech/gitextensions.png' },
     'misc': { x: -450, y: 200, color: '#00FFFF', icon: 'assets/icons/tech/linux.png' },
-    'contact': { x: 0, y: 280, color: '#FF4500', icon: 'assets/icons/tech/java.png' }  
+    'contact': { x: 0, y: 280, color: '#FF4500', icon: 'assets/icons/contact/gmail.svg' }  
 };
 
 // ==========================================
@@ -372,6 +372,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Start Observers
     document.querySelectorAll('.step-section').forEach(s => observer.observe(s));
+
+    // 5. Load AI Terminal
+    loadModule('rag-terminal-container', 'modules/11_rag_terminal/view.html').then(() => {
+        console.log("SYSTEM: AI Terminal Module Injected.");
+        if (typeof initRagTerminal === "function") {
+            initRagTerminal();
+        }
+    });
 });
 
 // ==========================================

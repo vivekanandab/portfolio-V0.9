@@ -253,7 +253,7 @@ body.unlocked {
     /* 2. ADD REASONABLE SPACING */
     /* 150px gap between sections provides good separation without being huge */
     padding: 60px 30px; 
-    margin-bottom: 50px; /* Adds physical distance between blocks */
+    /* margin-bottom: 30px; Adds physical distance between blocks */
 
     /* 3. LAYOUT */
     width: 100%;

@@ -1,0 +1,98 @@
+/* --- AI TERMINAL STYLES --- */
+#ai-terminal {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    background: rgba(10, 10, 15, 0.95);
+    border: 1px solid #00ffcc;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+    font-family: 'Courier New', Courier, monospace;
+    color: #00ffcc;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
+
+.ai-terminal-closed {
+    height: 40px;
+}
+
+.ai-terminal-open {
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    background: rgba(0, 255, 204, 0.1);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #00ffcc;
+    cursor: pointer;
+}
+
+.terminal-title {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.terminal-btn {
+    background: none;
+    border: none;
+    color: #00ffcc;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.terminal-btn:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #00ffcc;
+}
+
+.terminal-body {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    font-size: 13px;
+    line-height: 1.5;
+    display: none;
+}
+
+.ai-terminal-open .terminal-body { display: block; }
+
+.message { margin-bottom: 15px; word-wrap: break-word; }
+.user-message { color: #fff; text-align: right; }
+.ai-message { color: #00ffcc; }
+.prompt { color: #00ffcc; margin-right: 8px; font-weight: bold; }
+
+.terminal-footer {
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-top: 1px solid #00ffcc;
+    display: none;
+    align-items: center;
+}
+
+.ai-terminal-open .terminal-footer { display: flex; }
+
+#chat-input {
+    background: none;
+    border: none;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    flex-grow: 1;
+    outline: none;
+    padding: 5px;
+}
+
+#chat-input::placeholder { color: rgba(255, 255, 255, 0.3); }
+
+.loading-blink { animation: blink 1s infinite; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
