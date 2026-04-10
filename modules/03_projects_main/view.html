@@ -7,16 +7,16 @@
         </div>
         
         <div class="file-list">
-            <button class="file-btn active-file" onclick="window.viewProject('proj-malware', this)">
-                <span class="file-id">01</span> Malware Detection
+            <button class="file-btn active-file" onclick="window.viewProject('proj-anime', this)">
+                <span class="file-id">01</span> AnimeMatch Engine
             </button>
             
-            <button class="file-btn" onclick="window.viewProject('proj-anime', this)">
-                <span class="file-id">02</span> AnimeMatch 
+            <button class="file-btn" onclick="window.viewProject('proj-portfolio', this)">
+                <span class="file-id">02</span> Cloud ML Portfolio
             </button>
             
-            <button class="file-btn" onclick="window.viewProject('proj-scraper', this)">
-                <span class="file-id">03</span> Scraper Bots
+            <button class="file-btn" onclick="window.viewProject('proj-malware', this)">
+                <span class="file-id">03</span> Malware Detection
             </button>
             
             <button class="file-btn locked" onclick="window.viewProject('proj-locked-1', this)">
@@ -54,7 +54,84 @@
 
         <div class="viewer-scroll-area">
             
-            <div id="proj-malware" class="proj-details">
+            <!-- PROJECT 1: ANIMEMATCH + SCRAPERS -->
+            <div id="proj-anime" class="proj-details">
+                <div class="proj-top">
+                    <h2>AnimeMatch Engine <span class="tag">NLP / DATA</span></h2>
+                    <div class="tech-row"><span>Pinecone vector</span><span>HuggingFace</span><span>Docker</span></div>
+                </div>
+                
+                <div class="proj-img-placeholder">
+                    <img src="assets/images/thumbnails/1.png" alt="AnimeMatch Project Thumbnail" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                </div>
+                
+                <div class="proj-body">
+<p>
+<strong>Objective:</strong> A cross-domain, natural language discovery engine designed to solve the "cold start" problem via <strong>RAG architecture</strong> and dense vector embeddings.
+</p>
+<ul class="bullet-list">
+<li>
+Engineered custom <strong>Python scrapers</strong> (BeautifulSoup, Requests) extracting <strong>927,000 media records</strong> from MAL and TMDB with fail-safe checkpointing.
+</li>
+<li>
+Generated high-dimensional dense vector embeddings via <strong>HuggingFace</strong> (all-MiniLM-L6-v2) for semantic search.
+</li>
+<li>
+Pushed embeddings into a <strong>Pinecone vector DB</strong> to execute real-time cosine similarity searches <300ms.
+</li>
+<li>
+Established a serverless backend by deploying Dockerized microservices via <strong>GitHub Actions CI/CD</strong> to Google Cloud Run.
+</li>
+</ul>
+</div>
+                
+                <div class="proj-actions">
+                    <a href="https://github.com/vivekbharu25/AnimeMatch" target="_blank" class="archive-btn"><i class="fab fa-github"></i> Architecture</a>
+                    <a href="https://www.youtube.com/watch?v=8BX9Y8-_YBY" target="_blank" class="archive-btn yt-btn"><i class="fab fa-youtube"></i> Watch Demo</a>
+                    <a href="assets/documents/AnimeMatch_Report.pdf" target="_blank" class="archive-btn report-btn"><i class="fas fa-file-pdf"></i> Detailed Report</a>
+                </div>
+            </div>
+
+            <!-- PROJECT 2: ML PORTFOLIO -->
+            <div id="proj-portfolio" class="proj-details" style="display: none;">
+                <div class="proj-top">
+                    <h2>Cloud-Native ML Portfolio <span class="tag">CLOUD / ML</span></h2>
+                    <div class="tech-row"><span>FastAPI</span><span>LangChain</span><span>Google Cloud</span></div>
+                </div>
+                
+                <div class="proj-img-placeholder">
+                    <img src="assets/images/thumbnails/2.png" alt="Portfolio Dashboard Background" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                </div>
+                
+                <div class="proj-body">
+<p>
+<strong>Objective:</strong> To engineer a scalable, cyber-aesthetic portfolio powered by an integrated "NG Bot" assistant utilizing Long-Chain and ChromaDB RAG.
+</p>
+<ul class="bullet-list">
+<li>
+Architected a Dockerized <strong>FastAPI microservice</strong> capable of handling highly asynchronous chat terminal streaming endpoints.
+</li>
+<li>
+Integrated <strong>LangChain RAG</strong> with custom embeddings to synthesize technical documentation securely internally.
+</li>
+<li>
+Deployed a resilient <strong>Google Cloud Run</strong> container infrastructure orchestrated explicitly via strict Dockerfiles avoiding memory-leaks.
+</li>
+<li>
+Modeled an immaculate <strong>1400px Unibody Matrix UI</strong> powered purely by Vanilla CSS algorithms—executing zero-G math renders and flexbox logic flawlessly.
+</li>
+</ul>
+</div>
+                
+                <div class="proj-actions">
+                    <a href="https://github.com/vivekbharu25/Portfolio-Multiverse" target="_blank" class="archive-btn"><i class="fab fa-github"></i> Architecture</a>
+                    <a href="https://www.youtube.com/@nandagadu" target="_blank" class="archive-btn yt-btn"><i class="fab fa-youtube"></i> Watch Demo</a>
+                    <a href="assets/documents/Portfolio_Architecture.pdf" target="_blank" class="archive-btn report-btn"><i class="fas fa-file-pdf"></i> Detailed Report</a>
+                </div>
+            </div>
+
+            <!-- PROJECT 3: MALWARE DETECTION -->
+            <div id="proj-malware" class="proj-details" style="display: none;">
                 <div class="proj-top">
                     <h2>Malware Detection <span class="tag">DEEP LEARNING</span></h2>
                     <div class="tech-row"><span>TensorFlow</span><span>Keras</span><span>Comp. Vision</span></div>
@@ -64,101 +141,30 @@
                     <img src="assets/images/thumbnails/3.png" alt="MD Project Thumbnail" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
                 </div>
                 
-<div class="proj-body">
-<p>
-<strong>Objective:</strong> To automate malware classification by converting binary files into <strong>grayscale images</strong> for <strong>CNN-based</strong> visual recognition.
-</p>
-<ul class="bullet-list">
-<li>
-Achieved <strong>99.2% accuracy</strong> using a custom <strong>CNN</strong> trained on 9,300+ malware samples.
-</li>
-<li>
-Engineered an <strong>automated pipeline</strong> to transform raw binaries into <strong>8-bit visual vectors</strong>.
-</li>
-<li>
-Reduced validation loss to <strong>under 3%</strong> across <strong>25 malware families</strong> via Dropout and Adam optimization.
-</li>
-<li>
-Bypassed <strong>static analysis limits</strong> by enabling real-time detection of <strong>polymorphic threats</strong>.
-</li>
-</ul>
-</div>
-                
-                <div class="proj-actions">
-                    <a href="https://www.youtube.com/watch?v=8BX9Y8-_YBY" target="_blank" class="archive-btn yt-btn"><i class="fab fa-youtube"></i> Watch Demo</a>
-                    <a href="https://github.com/vivekbharu25/MalwareDetection" target="_blank" class="archive-btn"><i class="fab fa-github"></i> View Code</a>
-                </div>
-            </div>
-
-            <div id="proj-anime" class="proj-details" style="display: none;">
-                <div class="proj-top">
-                    <h2>AnimeMatch Engine <span class="tag">NLP / DATA</span></h2>
-                    <div class="tech-row"><span>Python</span><span>SVD</span><span>Beautiful Soup</span></div>
-                </div>
-                
-                <div class="proj-img-placeholder">
-                    <img src="assets/images/thumbnails/1.png" alt="AnimeMatch Project Thumbnail" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-                </div>
-                
                 <div class="proj-body">
 <p>
-<strong>Objective:</strong> To bridge cinema and anime through a <strong>hybrid recommendation engine</strong> utilizing <strong>NLP</strong> and <strong>Deep Learning</strong> .
+<strong>Objective:</strong> Automating malware classification by converting binary files (PE) into <strong>8-bit grayscale images</strong> for CNN-based pattern recognition.
 </p>
 <ul class="bullet-list">
 <li>
-Engineered a robust <strong>ETL pipeline</strong> in R to clean heterogeneous datasets and implement a custom <strong>Weighted Scoring (GS)</strong> algorithm .
+Achieved <strong>>99% accuracy</strong> using a Convolutional Neural Network trained on the Malimg dataset (9,339 images/25 families).
 </li>
 <li>
-Developed a <strong>Deep Neural Network</strong> classifier using <strong>Keras/TensorFlow</strong> with automated hyperparameter tuning to optimize <strong>AUC scores</strong> .
+Engineered a pipeline bypassing traditional signature limits by using visual structures to detect polymorphic threats.
 </li>
 <li>
-Implemented <strong>Content-Based Filtering</strong> using <strong>TF-IDF</strong> and <strong>Singular Value Decomposition (SVD)</strong> to extract latent semantic features from plot synopses .
+Proved that untouched <strong>non-rescaled feature mapping</strong> outperformed 150x150 downsampled arrays in granular loss metrics (<3% vs <7%).
 </li>
 <li>
-Deployed an interactive <strong>R Shiny web application</strong> enabling real-time cross-domain recommendations via <strong>Cosine Similarity</strong> .
+Trained using Google Colab's computational stack utilizing robust Data Augmentation techniques.
 </li>
 </ul>
 </div>
                 
                 <div class="proj-actions">
+                    <a href="https://github.com/vivekbharu25/MalwareDetection" target="_blank" class="archive-btn"><i class="fab fa-github"></i> Architecture</a>
                     <a href="https://www.youtube.com/watch?v=8BX9Y8-_YBY" target="_blank" class="archive-btn yt-btn"><i class="fab fa-youtube"></i> Watch Demo</a>
-                    <a href="https://github.com/vivekbharu25/AnimeMatch" target="_blank" class="archive-btn"><i class="fab fa-github"></i> View Code</a>
-                </div>
-            </div>
-
-            <div id="proj-scraper" class="proj-details" style="display: none;">
-                <div class="proj-top">
-                    <h2>Data Collection Bots <span class="tag">DATA ENG</span></h2>
-                    <div class="tech-row"><span>Python</span><span>BeautifulSoup</span><span>Requests</span></div>
-                </div>
-                
-                <div class="proj-img-placeholder">
-                    <img src="assets/images/thumbnails/2.png" alt="Scrapers Project Thumbnail" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-                </div>
-                
-                <div class="proj-body">
-<p>
-<strong>Objective:</strong> To build automated, fault-tolerant <strong>data extraction pipelines</strong> to mine massive, custom datasets from MyAnimeList and TMDB for downstream ML applications.
-</p>
-<ul class="bullet-list">
-<li>
-Developed custom web scrapers using <strong>Python</strong>, <strong>BeautifulSoup</strong>, and <strong>Requests</strong> to extract deep metadata (synopses, cast, scores) from structured web pages.
-</li>
-<li>
-Engineered a persistent <strong>checkpointing system</strong> (I/O state tracking) to log extraction progress, enabling seamless resumption across millions of page iterations.
-</li>
-<li>
-Implemented strategic <strong>rate limiting</strong> and <strong>HTTP error handling</strong> (e.g., handling 429/504 status codes) with dynamic sleep intervals to bypass server blocks.
-</li>
-<li>
-Automated the transformation of complex HTML DOM elements into clean, structured <strong>CSV datasets</strong> ready for immediate NLP and Deep Learning ingestion.
-</li>
-</ul>
-</div>
-                
-                <div class="proj-actions">
-                    <a href="https://www.youtube.com/watch?v=8BX9Y8-_YBY" target="_blank" class="archive-btn yt-btn"><i class="fab fa-youtube"></i> Watch Demo</a>
-                    <a href="https://github.com/vivekbharu25/Data_Collection_Scraper-Bots" target="_blank" class="archive-btn"><i class="fab fa-github"></i> View Code</a>
+                    <a href="assets/documents/Malware_Detection_Report.pdf" target="_blank" class="archive-btn report-btn"><i class="fas fa-file-pdf"></i> Detailed Report</a>
                 </div>
             </div>
 

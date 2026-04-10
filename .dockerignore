@@ -1,0 +1,14 @@
+# Ignore local environments to prevent Docker bloat
+venv/
+env/
+__pycache__/
+.git/
+
+# CRITICAL SECURITY (Prevent API keys from burning into image)
+.env
+.env.local
+.env.*
+
+# Ignore raw logs/temp files
+feedback_logs.json
+knowledge_base/

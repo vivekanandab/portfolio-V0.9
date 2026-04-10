@@ -1,20 +1,9 @@
 /* MODULE 02b: EXPERIENCE (CYAN SYSTEM THEME) */
 
 .experience-layout {
-    background: rgba(5, 15, 20, 0.85); /* Darker Blue-Black */
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 255, 255, 0.3); /* CYAN BORDER */
-    border-radius: 20px; /* Rounded corners */
     padding: 40px;
-    /* CORRECTED WIDTH LOGIC */
-    width: 95%; 
-    max-width: 1200px; 
     height: 600px;
-    margin: auto;
     display: flex; 
-    overflow: hidden; 
-    position: relative;
-    box-sizing: border-box; /* IMPORTANT */
 }
 
 /* === LEFT SIDEBAR === */
@@ -99,24 +88,62 @@
 
 .cmd-line { color: #00FFFF; margin-bottom: 12px; font-size: 1rem; opacity: 0; } /* Start invisible */
 
-.error-msg { 
-    color: #FF4500; font-size: 2rem; margin: 30px 0; 
-    text-shadow: 0 0 15px #FF4500; opacity: 0;
+.exp-timeline {
+    opacity: 0; 
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0; /* Crucial for Chrome flex-scrolling boundaries */
 }
 
-.success-msg { 
-    color: #00FF41; font-size: 1.3rem; border-left: 3px solid #00FF41; 
-    padding-left: 20px; background: rgba(0, 255, 65, 0.05); padding: 15px;
-    border-radius: 0 10px 10px 0; opacity: 0;
+.exp-scroll-area {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #00FFFF transparent;
 }
+.exp-scroll-area::-webkit-scrollbar { width: 4px; }
+.exp-scroll-area::-webkit-scrollbar-thumb { background-color: #00FFFF; border-radius: 4px; }
+
+.job-block { 
+    margin-bottom: 25px; 
+    border-left: 2px solid rgba(0, 255, 255, 0.3);
+    padding-left: 15px;
+    position: relative;
+}
+.job-block::before {
+    content: ''; position: absolute; left: -6px; top: 0;
+    width: 10px; height: 10px; background: #00FFFF; border-radius: 50%;
+    box-shadow: 0 0 10px #00FFFF;
+}
+
+.job-selector { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid rgba(0,255,255,0.2); padding-bottom: 10px;}
+.job-btn {
+    background: transparent; border: 1px solid rgba(0, 255, 255, 0.3); color: #888;
+    padding: 8px 15px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.9rem;
+    cursor: pointer; transition: 0.2s;
+}
+.job-btn:hover { border-color: #00FFFF; color: #00FFFF; }
+.job-btn.active { background: rgba(0, 255, 255, 0.1); border-color: #00FFFF; color: #fff; text-shadow: 0 0 8px #00FFFF;}
+
+.job-title { color: #00FFFF; margin: 0 0 5px 0; font-size: 1.2rem; text-shadow: 0 0 8px rgba(0,255,255,0.5); }
+.job-meta { display: flex; justify-content: space-between; font-size: 0.85rem; color: #888; margin-bottom: 15px; }
+.company-name { color: #fff; font-weight: bold; }
+
+.terminal-list { list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: #ddd; }
+.terminal-list li { position: relative; padding-left: 15px; margin-bottom: 10px; line-height: 1.4; }
+.terminal-list li::before { content: '>'; position: absolute; left: 0; color: #00FFFF; }
+
 .sub-text { display: block; font-size: 0.9rem; color: #888; margin-top: 5px; font-style: italic; }
 
 /* ANIMATION LOGIC (Triggered by JS adding .start-sequence to parent) */
 .start-sequence .line-1 { animation: typeOn 0.5s forwards 0.5s; }
 .start-sequence .line-2 { animation: typeOn 0.5s forwards 1.5s; }
 .start-sequence .line-3 { animation: typeOn 0.5s forwards 2.5s; }
-.start-sequence .error-msg { animation: flashRed 0.5s forwards 3.5s; }
-.start-sequence .success-msg { animation: typeOn 1s forwards 4.5s; }
+.start-sequence .exp-timeline { animation: typeOn 1s forwards 3.5s; }
 
 @keyframes typeOn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes flashRed { 

@@ -8,38 +8,79 @@
                 <div class="radar-core"><i class="fas fa-search-location"></i></div>
             </div>
             <div class="system-badge">SYS. DIAGNOSTIC</div>
+            
+            <div class="data-stream" style="position: absolute; top: -10px; right: -15px; text-align: right; font-size: 0.7rem;">
+                <span>CPU: 42%</span>
+                <span>MEM: 12TB</span>
+                <span>NET: SECURE</span>
+            </div>
         </div>
         
-        <div class="data-stream">
-            <span>CPU: 42%</span>
-            <span>MEM: 12TB</span>
-            <span>NET: SECURE</span>
+        <div class="radar-console-output" style="margin-top: 20px; font-family: 'Courier New', monospace; font-size: 0.8rem; padding-left: 20px; width: 100%;">
+            <p class="cmd-line line-1" style="color: #00FFFF; margin-bottom: 5px; opacity: 0; animation: typeOn 0.5s forwards 0.5s;">> INIT_SEARCH_ALGOS...</p>
+            <p class="cmd-line line-2" style="color: #00FFFF; margin-bottom: 5px; opacity: 0; animation: typeOn 0.5s forwards 1.5s;">> ACCESS_DB: [EMP_HIST]</p>
+            <p class="cmd-line line-3" style="color: #00FFFF; margin-bottom: 5px; opacity: 0; animation: typeOn 0.5s forwards 2.5s;">> 2 RECORDS DECRYPTED.</p>
         </div>
     </div>
 
     <div class="exp-right">
         
         <div class="exp-header-row">
-            <h2 class="section-title">CAREER PROTOCOL <span class="cyan">v2.0</span></h2>
+            <h2 id="career-title" class="section-title">CAREER PROTOCOL</h2>
             <div class="status-box">
                 <span class="status-light"></span> LIVE FEED
             </div>
         </div>
 
         <div id="scanner-ui" class="terminal-window">
-            <p class="cmd-line line-1">> INITIALIZING SEARCH ALGORITHMS...</p>
-            <p class="cmd-line line-2">> ACCESSING DATABASE: "EMPLOYMENT_HISTORY"...</p>
-            <p class="cmd-line line-3">> SCANNING SECTOR: "CORPORATE_JOBS"...</p>
+
             
-            <div class="result-area">
-                <h2 class="error-msg">
-                    <i class="fas fa-exclamation-triangle"></i> ERROR 404: JOB NOT FOUND
-                </h2>
+            <div class="result-area exp-timeline">
                 
-                <div class="success-msg">
-                    <p>CURRENT STATUS: <span class="blink-tag">OPEN TO WORK</span></p>
-                    <span class="sub-text">"System is primed for new mission objectives. Awaiting deployment."</span>
+                <div class="job-selector">
+                    <button class="job-btn" onclick="showJob('job-1', this, 'JUNIOR DATA SCIENTIST')">[01] JUNIOR DATA SCIENTIST</button>
+                    <button class="job-btn" onclick="showJob('job-2', this, 'TECHNICAL INTERN')">[02] TECHNICAL INTERN</button>
+                    <button class="job-btn clear-btn" onclick="clearJob()" style="padding: 8px; margin-left: auto;" title="Clear Selection"><i class="fas fa-times"></i></button>
                 </div>
+
+                <div class="exp-scroll-area">
+                
+                <div id="default-job-msg" class="job-block" style="border: none;">
+                    <h3 class="job-title" style="color: #666; text-shadow: none;">> SELECT LOG TO DECRYPT...</h3>
+                    <p class="sub-text" style="color: #555; margin-top: 15px;">> [SYSTEM MSG]: SUBJECT FULLY TRAINED. AWAITING FIELD DEPLOYMENT INITIATIVE...</p>
+                </div>
+
+                <div id="job-1" class="job-block" style="display: none;">
+                    <h3 class="job-title"><i class="fas fa-database"></i> JUNIOR DATA SCIENTIST</h3>
+                    <div class="job-meta">
+                        <span class="company-name">Husle Lifestyle Private Limited</span>
+                        <span class="job-date">June 2023 – June 2024</span>
+                    </div>
+                    <ul class="terminal-list">
+                        <li>Analyzed 2+ years of retail data using MySQL, Pandas, NumPy, Scikit-learn, and BI dashboards to detect inefficiencies, identifying 20% dead stock and driving a 15% monthly revenue uplift.</li>
+                        <li>Deployed an XGBoost forecasting model on 3 years of SKU-level data (500K+ transactions) with engineered temporal features, improving forecast accuracy by 25% and reducing stockouts by 18%.</li>
+                        <li>Built a social-to-sales attribution system using Meta Graph and YouTube Data APIs with TF-IDF mapping, driving a 20% uplift in social-attributed sales and a 30% ROI improvement.</li>
+                        <li>Optimized a high-traffic apparel launch system (12K peak users) using MySQL composite indexing and FastAPI/XGBoost, reducing query latency from 3s to 200ms and supporting 40K queries/hour.</li>
+                        <li>Engineered a low-latency backend integration layer using FastAPI and SQLAlchemy with event-driven updates, reducing data sync latency by 80%.</li>
+                    </ul>
+                </div>
+
+                <div id="job-2" class="job-block" style="display: none;">
+                    <h3 class="job-title"><i class="fas fa-code-branch"></i> TECHNICAL INTERN</h3>
+                    <div class="job-meta">
+                        <span class="company-name">Husle Lifestyle Private Limited</span>
+                        <span class="job-date">Jan 2022 – June 2023</span>
+                    </div>
+                    <ul class="terminal-list">
+                        <li>Integrated Razorpay payment gateway using REST APIs and webhook-based event processing, eliminating 95% of manual end-of-day reconciliation overhead.</li>
+                        <li>Digitized 30K+ retail transactions by building a Google Sheets and Forms ingestion workflow with batching and normalization, reducing manual processing effort by 60%.</li>
+                        <li>Designed a normalized 3NF MySQL schema and Python ETL pipeline to migrate 30K+ records, establishing a scalable, centralized inventory system.</li>
+                        <li>Developed a barcode generation and scanning system using python-barcode and Pillow, integrating physical inventory with MySQL to reduce checkout time by 80%.</li>
+                    </ul>
+                </div>
+                
+                </div> <!-- END SCROLL AREA -->
+
             </div>
         </div>
 

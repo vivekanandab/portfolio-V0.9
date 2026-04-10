@@ -595,6 +595,35 @@ function triggerCascade(originBrick) {
     }, 100); // 100ms delay between pops for cool visual effect
 };
 
+/* MODULE 02b: EXPERIENCE TOGGLE */
+window.showJob = function(jobId, btnElement, jobName) {
+    // Highlight active button
+    document.querySelectorAll('.job-btn').forEach(btn => btn.classList.remove('active'));
+    btnElement.classList.add('active');
+    
+    // Hide all job blocks
+    document.querySelectorAll('.job-block').forEach(block => block.style.display = 'none');
+    
+    // Show target
+    const target = document.getElementById(jobId);
+    if(target) target.style.display = 'block';
+
+    // Update Section Title Dynamically
+    const title = document.getElementById('career-title');
+    if(title) title.innerHTML = `CAREER PROTOCOL <span class="cyan">- ${jobName}</span>`;
+};
+
+window.clearJob = function() {
+    // Remove active highlights
+    document.querySelectorAll('.job-btn').forEach(btn => btn.classList.remove('active'));
+    // Hide all blocks, show default msg
+    document.querySelectorAll('.job-block').forEach(block => block.style.display = 'none');
+    document.getElementById('default-job-msg').style.display = 'block';
+    // Reset Title
+    const title = document.getElementById('career-title');
+    if(title) title.innerHTML = `CAREER PROTOCOL`;
+};
+
 /* MODULE 05: DYNAMIC PREVIEW LOGIC */
 
 // Data Map for Skills

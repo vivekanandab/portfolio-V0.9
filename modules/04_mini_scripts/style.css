@@ -10,11 +10,7 @@
     border-radius: 20px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.6);
     
-    /* THE NUKE (Matches Module 03 exactly) */
-    width: 90vw !important; 
-    max-width: 1200px !important; 
-    height: 540px; 
-    margin: 20px auto !important; 
+    height: 540px;
     
     display: flex; 
     flex-direction: row;
@@ -141,12 +137,6 @@
         flex-direction: column !important; 
         height: auto !important; 
         min-height: auto !important; 
-        
-        /* Force 90vw width so the pink border is always visible! */
-        width: 90vw !important; 
-        max-width: 90vw !important; 
-        margin: 20px auto !important;
-        border-radius: 15px !important; 
     }
 
     .mini-grid-panel { 

@@ -322,3 +322,56 @@ body.unlocked {
     .deck-split-layout { flex-direction: column; }
     .deck-col { width: 100%; }
 }
+
+/* =========================================
+   PREMIUM ALIGNMENT SETTINGS (V2 Unibody Grid)
+   ========================================= */
+.game-hud-layout,
+.experience-layout,
+.archive-layout,
+.mini-layout,
+.cert-layout,
+.holo-wrapper,
+.recs-deck-container,
+.transmission-container {
+    width: 92vw !important; 
+    max-width: 1400px !important; 
+    margin: 30px auto !important; 
+    
+    background: rgba(10, 10, 12, 0.75) !important;
+    backdrop-filter: blur(15px) !important;
+    
+    /* Sleek white/silver frost outer border */
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.05) !important;
+    
+    position: relative;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Internal Glow Effect for Premium Look */
+.game-hud-layout::before,
+.experience-layout::before,
+.archive-layout::before,
+.mini-layout::before,
+.cert-layout::before,
+.holo-wrapper::before,
+.recs-deck-container::before,
+.transmission-container::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    z-index: 10;
+}
+
+/* Mobile Tweak - Full width to save space */
+@media (max-width: 900px) {
+    .game-hud-layout, .experience-layout, .archive-layout, .mini-layout, .cert-layout, .holo-wrapper, .recs-deck-container, .transmission-container {
+        width: 95vw !important;
+    }
+}

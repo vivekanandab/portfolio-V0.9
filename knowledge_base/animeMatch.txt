@@ -1,3 +1,60 @@
+Project Report: AnimeMatch Semantic Search Engine
+1. Executive Summary
+AnimeMatch is a cross-domain, natural language discovery engine designed to solve the "cold start" problem in media recommendation systems. Moving beyond traditional rigid keyword and genre-matching, the system leverages a Retrieval-Augmented Generation (RAG) architecture and dense vector embeddings to enable "vibe-based" semantic search. By ingesting and normalizing 927,000 combined records from MyAnimeList and TMDB, AnimeMatch allows users to discover highly specific, niche anime recommendations based on complex thematic queries or cross-domain inputs (e.g., finding anime with the exact psychological profile of a specific live-action movie).
+
+2. Core Technology Stack
+Data Extraction & Engineering: Python, BeautifulSoup, Requests, Pandas
+
+Machine Learning & NLP: HuggingFace (all-MiniLM-L6-v2), TF-IDF (Legacy mapping)
+
+Vector Database: Pinecone
+
+Infrastructure & Orchestration: Docker, Google Cloud Run (GCP)
+
+CI/CD: GitHub Actions
+
+3. Data Engineering & Pipeline Architecture
+The foundation of AnimeMatch is a custom, high-volume data ingestion pipeline built to handle large-scale scraping without relying on pre-packaged Kaggle datasets.
+
+Data Acquisition: Engineered custom Python scraping scripts targeting MyAnimeList (anime metadata) and TMDB (movie metadata).
+
+Scale: Successfully extracted, parsed, and normalized 927,000 distinct media records.
+
+Resiliency Engineering: Implemented a robust state-management and checkpointing system. This fail-safe architecture stored crawl states locally, allowing the scraper to dynamically pause, handle 429 (rate limit) and 5xx network errors via exponential backoff, and resume execution without data loss or corruption.
+
+Feature Engineering: Extracted complex DOM elements into structured data, capturing not just titles and genres, but full plot synopses, user ratings, thematic tags, and popularity metrics to feed the NLP pipeline.
+
+4. Machine Learning & Semantic Retrieval
+The core intelligence of AnimeMatch lies in its transition from high-dimensional text reduction to state-of-the-art dense vector embeddings.
+
+Embedding Generation: Processed the cleaned textual data (synopses, themes, tags) through the HuggingFace all-MiniLM-L6-v2 model. This specific model was selected for its optimal balance between fast inference speeds and high semantic similarity accuracy.
+
+Vector Storage: Pushed the generated high-dimensional embeddings into a Pinecone vector database for scalable, real-time indexing.
+
+Query Execution: When a user inputs a natural language query (e.g., "dark fantasy with psychological elements and a strong female lead"), the system embeds the query using the same HuggingFace model, performs a mathematically precise cosine similarity search within Pinecone, and returns the closest semantic matches.
+
+5. Infrastructure & Cloud Deployment
+To ensure the system functions as a highly available production application rather than a local script, the microservices were deployed to a cloud-native environment.
+
+Containerization: Wrapped the Python recommendation logic and API endpoints within isolated Docker containers to guarantee environment parity between local development and production.
+
+Serverless Compute: Deployed the Dockerized microservices to Google Cloud Run, establishing an auto-scaling, serverless backend capable of handling traffic spikes without manual intervention.
+
+Latency Optimization: The integration of Pinecone and Cloud Run resulted in a highly performant system, processing natural language queries and returning recommendations with under 300ms of real-time latency.
+
+Automated CI/CD: Engineered a GitHub Actions pipeline that completely eliminated manual deployment steps. Code commits to the main branch automatically trigger image builds, push to GCP Artifact Registry, and deploy to Cloud Run, achieving zero-downtime updates in 3 minutes.
+
+6. Product Value & Community Impact
+AnimeMatch directly addresses critical inefficiencies in media discovery platforms.
+
+Eradicating the Cold Start Problem: New users do not need an established watch history to receive hyper-accurate recommendations. They can simply describe the narrative tone they are seeking.
+
+Cross-Domain Discovery: By mapping 900,000 movies alongside 27,000 anime, the system bridges isolated media silos. A user can input a live-action film (e.g., Inception) and retrieve anime with mathematically proven thematic similarities.
+
+Precision Targeting: Bypasses the limitations of broad categorical tags, allowing users to discover niche, hidden-gem media based on exact narrative meaning rather than generic popularity rankings.
+
+
+old version
 AnimeMatch: A Technical Architecture for Cross-Domain Semantic Recommendations
 
 1. Project Vision and AbstractThe AnimeMatch project, developed by Vivekananda Bharupati and Sanvitha Reddy Velma at the University of Illinois Springfield, addresses the "choice overload" problem within the burgeoning anime industry. As thousands of titles are released across various genres, users often struggle to find new content that matches their existing cinematic tastes. The core innovation of AnimeMatch is its cross-domain recommendation engine, which uses machine learning to predict anime preferences specifically based on a user’s established movie preferences. This bridge between traditional cinema and anime is built using a hybrid of supervised and unsupervised learning techniques, including Natural Language Processing (NLP) and Singular Value Decomposition (SVD).

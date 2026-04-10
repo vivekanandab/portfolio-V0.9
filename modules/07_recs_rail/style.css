@@ -13,12 +13,7 @@
 
 /* 1. MASTER CONTAINER */
 .recs-deck-container {
-    width: 90vw;
-    max-width: 1600px;
-    margin: 20px auto 10px; /* Sitting below Module 06 */
-    position: relative;
     font-family: 'Poppins', sans-serif;
-    overflow: hidden;
 }
 
 /* 2. HEADER BOX */

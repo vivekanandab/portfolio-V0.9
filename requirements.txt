@@ -5,3 +5,6 @@ langchain-google-genai
 pypdf
 chromadb
 langchain-chroma
+python-dotenv
+pydantic
+langchain-community

@@ -1,13 +1,7 @@
 /* MODULE 02: GAME HUD STYLES */
 
 .game-hud-layout {
-    background: rgba(5, 10, 15, 0.85);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 255, 65, 0.3);
-    border-radius: 20px;
     padding: 40px;
-    width: 95%; max-width: 1200px; margin: auto;
-    box-shadow: 0 0 30px rgba(0, 255, 65, 0.1);
     display: flex; align-items: stretch; gap: 40px;
 }
 
@@ -136,7 +130,15 @@
 .social-icon:hover { background: #FFD700; color: black; }
 
 /* Text & Fitness */
-.bio-text { font-size: 1rem; color: #ccc; line-height: 1.8; margin-bottom: 30px; }
+.bio-text { font-size: 1rem; color: #ccc; line-height: 1.8; margin-bottom: 20px; }
+
+.tech-stack-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
+.tech-badge { 
+    background: rgba(0, 255, 65, 0.1); border: 1px solid #00FF41; color: #00FF41; 
+    padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-family: 'Courier New', monospace;
+    transition: 0.2s; cursor: default;
+}
+.tech-badge:hover { background: #00FF41; color: black; box-shadow: 0 0 10px rgba(0,255,65,0.5); }
 .fitness-line { 
     width: 100%; margin-bottom: 30px; 
     background: rgba(0,0,0,0.4); padding: 10px 15px; border-radius: 5px; 

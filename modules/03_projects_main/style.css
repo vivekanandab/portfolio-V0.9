@@ -10,11 +10,7 @@
     border-radius: 20px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.6);
     
-    /* THE NUKE: Forces scaling based on the physical screen size */
-    width: 90vw !important; 
-    max-width: 1200px !important; 
     height: 600px;
-    margin: 20px auto !important; 
     
     display: flex;
     flex-direction: row;
@@ -125,13 +121,6 @@
         flex-direction: column !important; 
         height: auto !important; 
         min-height: auto !important; 
-        
-        /* Force 90% of screen width, leaving 5% margin on each side */
-        width: 90vw !important; 
-        max-width: 90vw !important; 
-        margin: 20px auto !important;
-        
-        border-radius: 15px; 
     }
 
     .archive-sidebar { 

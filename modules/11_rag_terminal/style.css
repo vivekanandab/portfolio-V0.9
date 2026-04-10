@@ -3,25 +3,61 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 350px;
     background: rgba(10, 10, 15, 0.95);
     border: 1px solid #00ffcc;
     box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
     font-family: 'Courier New', Courier, monospace;
     color: #00ffcc;
     z-index: 1000;
-    transition: all 0.3s ease;
-    border-radius: 4px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     overflow: hidden;
     backdrop-filter: blur(5px);
 }
 
 .ai-terminal-closed {
-    height: 40px;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ai-terminal-closed .terminal-header {
+    border-bottom: none;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    justify-content: center;
+}
+
+.ai-terminal-closed .terminal-title {
+    display: none;
+}
+
+.ai-terminal-closed .terminal-btn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: transparent;
+}
+
+.ai-terminal-closed .terminal-btn::before {
+    content: '\f4ad'; 
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #00ffcc;
 }
 
 .ai-terminal-open {
+    width: 350px !important;
     height: 450px;
+    border-radius: 4px;
     display: flex;
     flex-direction: column;
 }
@@ -96,3 +132,47 @@
 
 .loading-blink { animation: blink 1s infinite; }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+.bot-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 8px;
+    border: 1px solid #00ffcc;
+    box-shadow: 0 0 5px #00ffcc;
+}
+
+.feedback-box {
+    margin-top: 8px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.feedback-box button {
+    background: transparent;
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 2px 6px;
+    transition: 0.2s;
+    font-size: 10px;
+}
+
+.feedback-box button:hover {
+    background: rgba(0, 255, 204, 0.2);
+    border-color: #00ffcc;
+}
+
+.feedback-box button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.feedback-msg {
+    font-size: 10px;
+    color: #00ffcc;
+}
